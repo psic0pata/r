@@ -1,0 +1,22 @@
+A = matrix(1:9, nrow = 3, ncol = 3)
+B = matrix(9:1, nrow = 3, ncol = 3)
+A_t = t(A)
+B_t = t(B)
+sum = A +
+B diff = A -
+B
+prod = A %*% B
+cat("Matrix
+A:\n") print(A)
+cat("Matrix
+B:\n") print(B)
+cat("Transpose of A:\n")
+print(A_t)
+cat("Transpose of B:\n")
+print(B_t)
+cat("Addition of A and B:\n")
+print(sum)
+cat("Subtraction of A and B:\n")
+print(diff)
+cat("Multiplication of A and B:\n")
+print(prod)

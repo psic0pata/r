@@ -1,0 +1,40 @@
+monthly_revenue <- c(50, 60, 70, 80, 90, 100, 110,
+120, 130, 140, 155, 165)
+monthly_expenses <- c(30, 35, 40, 45, 50, 55, 60,
+65,
+70, 75, 80, 85)
+profit <- monthly_revenue - monthly_expenses
+tax_rate <- 0.30 profit_after_tax <- profit * (1 -
+tax_rate) profit_margin <- (profit_after_tax /
+monthly_revenue) * 100 mean_profit_after_tax
+<- mean(profit_after_tax) good_months <-
+profit_after_tax > mean_profit_after_tax
+bad_months <- profit_after_tax <
+mean_profit_after_tax best_month <-
+which.max(profit_after_tax) worst_month <-
+which.min(profit_after_tax) profit <- round(profit
+* 1000, 2) profit_after_tax <-
+round(profit_after_tax * 1000, 2) profit_margin <-
+round(profit_margin, 0) results <- data.frame(
+Month = 1:12,
+Profit = profit,ProfitAfterTax = profit_after_tax,
+ProfitMargin = profit_margin,
+GoodMonth = good_months, BadMonth
+= bad_months)
+cat("Profit for each month (in $1000 units):\n")
+cat(results$Profit, "\n\n")
+cat("Profit after tax for each month (in $1000
+units):\n")
+cat(results$ProfitAfterTax, "\n\n") cat("Profit
+margin for each month (in %):\n")
+cat(results$ProfitMargin, "\n\n")
+cat("Good Months (Profit after tax greater than
+mean):\n") cat(results$Month[results$GoodMonth],
+"\n\n") cat("Bad Months (Profit after tax less than
+mean):\n") cat(results$Month[results$BadMonth],
+"\n\n") cat("Best Month (Max Profit after tax):\n")
+cat(results$Month[best_month], "\n\n") cat("Worst
+Month (Min Profit after tax):\n")
+cat(results$Month[worst_month], "\n\n")
+write.csv(results, "financial_metrics.csv", row.names
+= FALSE)

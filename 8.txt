@@ -1,0 +1,22 @@
+data("airquality", package = "datasets")
+= "Histogram of Ozone") hist(airquality$Ozone, col =
+names(airquality) <- c("Ozone", "Solar.R", "Wind",
+"lightpink", main =
+"Temp", "Month", "Day") hist(airquality$Ozone, col =
+"Histogram of Ozone", xlab = "Ozone Levels", ylab =
+"skyblue", main = "Histogram of Ozone", xlab =
+"Frequency", xlim = c(0, 150), ylim = c(0, 40))
+"Ozone Levels", ylab =
+cleaned_data <- na.omit(airquality$Ozone)
+"Frequency")
+hist(cleaned_data,
+col
+=
+hist(airquality$Ozone, col = "lightgreen", main = "", xlab =
+"lightblue",
+main
+= "Histogram of
+"", ylab = "", axes = FALSE)
+Ozone", xlab = "Ozone Levels", ylab =
+"Frequency")
+lines(density(cleaned_data), col = "red")

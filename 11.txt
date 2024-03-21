@@ -1,0 +1,33 @@
+set.seed(123)
+Years_of_Experience <- 1:40
+Salary <- 30000 + 1500 * Years_of_Experience +
+rnorm(40, mean = 0, sd = 2000) # Generating
+salaries data <data.frame(Years_of_Experience,
+round(Salary, digits = -1 ))
+model <- lm(Salary ~ Years_of_Experience,
+data = data) plot(Salary ~
+Years_of_Experience, data, col = "blue", main =
+"Salary vs. Years of Experience") abline(model,
+col = "red")
+png("Salary_Experience_Plot03.png")
+plot(Salary ~ Years_of_Experience, data, col =
+"blue", main = "Salary vs. Years of Experience")
+abline(model, col = "red")
+dev.off() predicted_values <- round( predict(model), digits=0)
+plot(Salary, predicted_values, main = "Actual vs. Predicted
+Salaries", xlab = "Actual Salary", ylab =
+"Predicted
+Salary",
+col
+=
+"green")
+jpeg("Actual_vs_Predicted_Salary.jpg")
+plot(Salary,
+predicted_values, main = "Actual vs. Predicted
+Salaries", xlab = "Actual Salary", ylab =
+"Predicted Salary", col = "green") dev.off()
+data$Predicted_Salary
+<-
+predicted_values
+write.csv(data, "Salary_Experience_Predictions.csv",
+row.names = FALSE)
